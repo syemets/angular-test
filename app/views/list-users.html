@@ -1,0 +1,39 @@
+<div class="container">
+
+    <h3>Users</h3>
+    <hr>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Tools</th>
+            <th>#</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Gender</th>
+            <th>Notify</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in users">
+            <td>
+                <button class="btn" ng-click="editUser($index)">
+                    <span class="glyphicon glyphicon-pencil"></span>  Edit
+                </button>
+                <button class="btn" ng-click="deleteUser($index)">
+                    <span class="glyphicon glyphicon-remove"></span>  Delete
+                </button>
+            </td>
+            <td>{{ $index + 1 }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.pass }}</td>
+            <td>{{ user.gender }}</td>
+            <td><input type="checkbox" disabled ng-model="user.notification"></td>
+        </tr>
+
+        </tbody>
+    </table>
+    <hr>
+    <a href="#/new" class="btn btn-success">
+        <span class="glyphicon glyphicon-plus"></span>  Add user
+    </a>
+</div>

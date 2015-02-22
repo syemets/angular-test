@@ -1,0 +1,31 @@
+<div class="container">
+    <h3>{{isNewUser|checkNew:'New user':'Edit user'}}</h3>
+    <hr>
+    <form class="col-lg-6" ng-submit="submit()">
+        <div class="alert alert-danger" ng-show="errVisible">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>Error!</strong> {{errorMsg}}
+        </div>
+        <div class="form-group">
+            <label for="inputEmail">Email</label>
+            <input ng-model="user.email" type="email" ng-change="errVisible=false" class="form-control" id="inputEmail" placeholder="For example, john.smith@mail.com" required>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword">Password</label>
+            <input ng-model="user.pass" type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+        </div>
+        <div class="form-group">
+            <label >Gender</label>
+            <select class="form-control" ng-options="v as v for (k, v) in enumGender"
+                    ng-model="user.gender" required>
+                <option value='' disabled>- Please Choose -</option>
+            </select>
+        </div>
+        <div class="checkbox">
+            <label><input ng-model="user.notification" type="checkbox">Enable email notification</label>
+        </div>
+        <button type="submit" class="btn btn-success">
+            <span class="glyphicon {{isNewUser|checkNew:'glyphicon-log-in':'glyphicon-save'}}"></span> {{isNewUser|checkNew:'Submit':'Save'}}
+        </button>
+    </form>
+</div>
